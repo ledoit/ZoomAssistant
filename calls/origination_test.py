@@ -7,14 +7,14 @@ from twilio.rest import Client
 # and set the environment variables. See http://twil.io/secure
 
 # make sure to add environment variables for SID and TOKEN
-account_sid = os.environ['TWILIO_ACCOUNT_SID'] #ACc0a283372393a7747c13bac2cca1d56b
-auth_token = os.environ['TWILIO_AUTH_TOKEN'] #760ae03cb12115e66048e4740fdf5850
+account_sid = os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
 call = client.calls.create(
                         url='http://demo.twilio.com/docs/voice.xml',
-                        to='+16504894546',
-                        from_='+18554208536'
+                        to='+18554208536',
+                        from_='+16504894546'
                     )
 
 print(call.sid)
