@@ -1,20 +1,22 @@
 #include "RawAudioSenderAndSpeaker.h"
 #include "helpers/zoom_video_sdk_user_helper_interface.h"
+#include <chrono>
+#include <thread>
 
 USING_ZOOM_VIDEO_SDK_NAMESPACE;
 
-// NOTE TO JON This code needs to be added to the session context before joining a meeting:
-//ZoomVideoSDKSessionContext session_context;
-//session_context.sessionName = session_name_;
-//session_context.sessionPassword = session_password_;
-//session_context.userName = sUserName;
-//session_context.token = token_.c_str();
-//session_context.videoOption.localVideoOn = is_video_on;
-//session_context.audioOption.connect = true;
-//session_context.audioOption.mute = is_mute_audio;
-//CExampleRawAudioSenderAndSpeaker* rawAudioSenderAndSpeaker = new CExampleRawAudioSenderAndSpeaker();
-//session_context.virtualAudioMic = rawAudioSenderAndSpeaker;
-//session_context.virtualAudioSpeaker = rawAudioSenderAndSpeaker;
+//This code needs to be added to the session context before joining a meeting:
+ZoomVideoSDKSessionContext session_context;
+session_context.sessionName = session_name_;
+session_context.sessionPassword = session_password_;
+session_context.userName = sUserName;
+session_context.token = token_.c_str();
+session_context.videoOption.localVideoOn = is_video_on;
+session_context.audioOption.connect = true;
+session_context.audioOption.mute = is_mute_audio;
+RawAudioSenderAndSpeaker* rawAudioSenderAndSpeaker = new RawAudioSenderAndSpeaker();
+session_context.virtualAudioMic = rawAudioSenderAndSpeaker;
+session_context.virtualAudioSpeaker = rawAudioSenderAndSpeaker;
 
 void RawAudioSenderAndSpeaker::SendRawAudio(char* data, unsigned int data_length, int sample_rate)
 {
@@ -29,7 +31,7 @@ void RawAudioSenderAndSpeaker::SendRawAudio(char* data, unsigned int data_length
 
 void RawAudioSenderAndSpeaker::onMicInitialize(IZoomVideoSDKAudioSender* rawdata_sender)
 {
-    // Once the sender has been recieved from this callback, then Send can be called
+    // Once the sender has been received from this callback, then Send can be called
     virtual_audio_sender_ = rawdata_sender;
 }
 
@@ -85,3 +87,4 @@ void RawAudioSenderAndSpeaker::onVirtualSpeakerSharedAudioReceived(AudioRawData*
     data_->GetChannelNum();
     data_->GetSampleRate();
 }
+
