@@ -1,7 +1,9 @@
 import React from "react";
-import { Row, Col, ProgressBar } from "react-bootstrap";
+import { ProgressBar } from "react-bootstrap";
+import Invite from "./Invite";
 import AddTask from "./AddTask";
 import ListItems from "./ListItems";
+import Transcript from "./Transcript";
 import './ToDoItemList.css';
 
 class ToDoItemList extends React.Component {
@@ -67,26 +69,50 @@ class ToDoItemList extends React.Component {
 
     render() {
         const jumbotronInstance = (
-            <div>
-                <Row className="show-grid">
-                    <Col xs={6} md={4}></Col>
-                    <Col xs={6} md={4}>
-
-                        <div className="InputElements">
-                            <h3>To Do List</h3>
-                            <AddTask updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
-                            <div className="taskProgressBar">
-                                <ProgressBar active now={this.state.progress} label={`${this.state.progress}%`} />
+            <div class="container-fluid">
+                <div class="row mt-n1">
+                    <div class="col text-center">
+                        <h1>
+                            Zoom Assistant
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex">
+                            <div className="InputElements">
+                                <br></br><h3>Invite Link</h3>
+                                <Transcript updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
                             </div>
                         </div>
-
-                        <div className="taskListElements">
-                            <ListItems tasks={this.state.taskList} handleTaskClick={this.handleTaskClick} />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex">
+                            <div>
+                            <div className="InputElements">
+                                <h3>To Do List</h3>
+                                <AddTask updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
+                                <div className="taskProgressBar">
+                                    <ProgressBar active now={this.state.progress} label={`${this.state.progress}%`} />
+                                </div>
+                            </div>
+                            </div>
+                            <div className="taskListElements">
+                                <ListItems tasks={this.state.taskList} handleTaskClick={this.handleTaskClick} />
+                            </div>
                         </div>
-
-                    </Col>
-                    <Col xsHidden md={4}></Col>
-                </Row>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex">
+                            <div className="InputElements">
+                                <h3>Live Transcript</h3>
+                                <Invite updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
 
