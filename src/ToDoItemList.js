@@ -1,5 +1,4 @@
 import React from "react";
-import { ProgressBar } from "react-bootstrap";
 import Invite from "./Invite";
 import AddTask from "./AddTask";
 import ListItems from "./ListItems";
@@ -82,17 +81,13 @@ class ToDoItemList extends React.Component {
                         <div class="d-flex">
                             <div className="InputElements">
                                 <br></br><h3>Invite Link</h3>
-                                <Invite/>
+                                <Invite updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <br/>
-                <br/>
-
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col">
                         <div class="d-flex">
                             <div>
                             <div className="InputElements">
@@ -105,7 +100,7 @@ class ToDoItemList extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col">
                         <div class="d-flex">
                             <div className="InputElements">
                                 <h3>Live Transcript</h3>
