@@ -13,17 +13,18 @@ class AddTask extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.updatedTaskList(this.state.taskValue);
-
+        if (this.state.taskValue != ''){
+            this.props.updatedTaskList(this.state.taskValue);
+        }
         this.setState({
             taskValue: ''
         })
     }
 
     handleChange = (event) => {
-            this.setState({
+        this.setState({
             taskValue: event.target.value
-            })
+        })
     }
 
     removeCompletedTasks = () => {
@@ -38,7 +39,6 @@ class AddTask extends React.Component {
                     <FormControl type="text" placeholder="Add Task" value={this.state.taskValue} onChange={this.handleChange} />
                     <Button bsStyle="primary" type="submit">Add</Button>
                 </FormGroup>
-                {' '}
                 <button type="button" class="btn btn-success btn-sm mt-1" onClick={this.removeCompletedTasks}>Clear Completed</button>
                 </div>
             </Form>
