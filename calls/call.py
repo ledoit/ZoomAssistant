@@ -1,14 +1,15 @@
 # Download the helper library from https://www.twilio.com/docs/python/install
 import os
 from twilio.rest import Client
+from twilio.twiml.voice_response import VoiceResponse, Say
 
 # Pull these parameters from the webapp
-id = '###'
-password = '###'
+id = '93252622257'
+password = '703216'
 
 # Call variables
 caller = '+18507792976'
-zoom_number = '+16468769923'
+# zoom_number = '+16468769923'
 
 
 # make sure to add environment variables for SID and TOKEN
@@ -18,19 +19,17 @@ client = Client(account_sid, auth_token)
 
 url = 'https://handler.twilio.com/twiml/EHd4aeeecb3b167c1c7cb49b755d9dbb27'
 
-url = url + '?id=' + str(id) + '&password=' + str(password)
+
 d = 'ww' + id + '#wwww*' + password + '#'
 
 call = client.calls.create(
-    send_digits=d,
-
-                        twiml="<Response> <Record/> <Say voice='Polly.Amy'> Thanos did nothing "
-                              "wrong! </Say> </Response>",
-                        to=zoom_number,
-                        from_=caller
+                        send_digits=d,
+                        url=url,
+                        to='+16468769923',
+                        from_=caller,
                     )
 
 
 
-
 print(call.sid)
+print(call.)
