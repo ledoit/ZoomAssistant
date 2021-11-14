@@ -1,7 +1,7 @@
-import { Button, Form, FormGroup, FormControl } from "react-bootstrap";
+import { Button, Form, FormGroup, FormControl} from "react-bootstrap";
 import React from 'react';
 
-class AddTask extends React.Component {
+class Transcript extends React.Component {
 
     constructor(props) {
         super(props)
@@ -33,14 +33,9 @@ class AddTask extends React.Component {
     render() {
         const formInstance = (
             <Form inline onSubmit={this.handleSubmit}>
-                <div>
                 <FormGroup controlId="formInlineName">
-                    <FormControl type="text" placeholder="Add Task" value={this.state.taskValue} onChange={this.handleChange} />
-                    <Button bsStyle="primary" type="submit">Add</Button>
+                    <textarea class="form-control" placeholder="Transcript starts here" rows="8" value={this.state.taskValue} onChange={this.handleChange} />
                 </FormGroup>
-                {' '}
-                <button type="button" class="btn btn-success btn-sm" onClick={this.removeCompletedTasks}>Clear Completed</button>
-                </div>
             </Form>
         );
 
@@ -53,4 +48,4 @@ class AddTask extends React.Component {
 
 }
 
-export default AddTask;
+export default Transcript;
