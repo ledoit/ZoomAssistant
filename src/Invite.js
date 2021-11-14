@@ -36,6 +36,8 @@ class Invite extends React.Component {
                 <FormGroup controlId="formInlineName">
                     <FormControl type="text" placeholder="Paste invite link here" value={this.state.taskValue} onChange={this.handleChange} />
                 </FormGroup>
+				{' '}
+                <Button bsStyle="primary" type="submit">Go</Button>
             </Form>
         );
 

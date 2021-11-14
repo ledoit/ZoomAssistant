@@ -33,13 +33,14 @@ class AddTask extends React.Component {
     render() {
         const formInstance = (
             <Form inline onSubmit={this.handleSubmit}>
+                <div>
                 <FormGroup controlId="formInlineName">
                     <FormControl type="text" placeholder="Add Task" value={this.state.taskValue} onChange={this.handleChange} />
+                    <Button bsStyle="primary" type="submit">Add</Button>
                 </FormGroup>
                 {' '}
-                <Button bsStyle="primary" type="submit">Add</Button>
-                {' '}
-                <Button bsStyle="danger" onClick={this.removeCompletedTasks}>Remove Completed</Button>
+                <button type="button" class="btn btn-success btn-sm" onClick={this.removeCompletedTasks}>Clear Completed</button>
+                </div>
             </Form>
         );
 

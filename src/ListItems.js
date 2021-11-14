@@ -10,8 +10,8 @@ class ListItems extends React.Component {
 
     createListItems = (task) => {
     return (<ListGroupItem 
-        bsStyle={task.completed ? "success" : "danger"} 
-        key={task.key} 
+        bsStyle={task.completed ? "success" : "light"} 
+        key={task.key}
         className="taskItem" 
         onClick={() => this.handleClick(task.key) }>{task.task}</ListGroupItem>);
     }

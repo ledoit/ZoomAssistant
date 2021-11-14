@@ -82,7 +82,7 @@ class ToDoItemList extends React.Component {
                         <div class="d-flex">
                             <div className="InputElements">
                                 <br></br><h3>Invite Link</h3>
-                                <Transcript updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
+                                <Invite updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
                             </div>
                         </div>
                     </div>
@@ -92,11 +92,8 @@ class ToDoItemList extends React.Component {
                         <div class="d-flex">
                             <div>
                             <div className="InputElements">
-                                <h3>To Do List</h3>
+                                <h3>To Do</h3>
                                 <AddTask updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
-                                <div className="taskProgressBar">
-                                    <ProgressBar active now={this.state.progress} label={`${this.state.progress}%`} />
-                                </div>
                             </div>
                             </div>
                             <div className="taskListElements">
@@ -108,7 +105,7 @@ class ToDoItemList extends React.Component {
                         <div class="d-flex">
                             <div className="InputElements">
                                 <h3>Live Transcript</h3>
-                                <Invite updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
+                                <Transcript updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
                             </div>
                         </div>
                     </div>

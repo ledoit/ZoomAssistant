@@ -1,4 +1,4 @@
-import { Button, Form, FormGroup, FormControl } from "react-bootstrap";
+import { Button, Form, FormGroup, FormControl} from "react-bootstrap";
 import React from 'react';
 
 class Transcript extends React.Component {
@@ -34,7 +34,7 @@ class Transcript extends React.Component {
         const formInstance = (
             <Form inline onSubmit={this.handleSubmit}>
                 <FormGroup controlId="formInlineName">
-                    <FormControl type="text" placeholder="Transcript starts here" value={this.state.taskValue} onChange={this.handleChange} />
+                    <textarea class="form-control" placeholder="Transcript starts here" rows="8" value={this.state.taskValue} onChange={this.handleChange} />
                 </FormGroup>
             </Form>
         );
