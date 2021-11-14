@@ -21,9 +21,9 @@ class AddTask extends React.Component {
     }
 
     handleChange = (event) => {
-        this.setState({
+            this.setState({
             taskValue: event.target.value
-        })
+            })
     }
 
     removeCompletedTasks = () => {
@@ -39,7 +39,7 @@ class AddTask extends React.Component {
                     <Button bsStyle="primary" type="submit">Add</Button>
                 </FormGroup>
                 {' '}
-                <button type="button" class="btn btn-success btn-sm" onClick={this.removeCompletedTasks}>Clear Completed</button>
+                <button type="button" class="btn btn-success btn-sm mt-1" onClick={this.removeCompletedTasks}>Clear Completed</button>
                 </div>
             </Form>
         );
