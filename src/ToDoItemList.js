@@ -70,30 +70,26 @@ class ToDoItemList extends React.Component {
         const jumbotronInstance = (
             <div class="container-fluid">
                 <div class="row mt-n1">
+                    <div class="col">
+                        <div class="d-flex-center">
+                            <div className="InputElements">
+                                <Invite updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
+                            </div>
+                        </div>
+                    </div>
                     <div class="col text-center">
                         <h1>
                             Zoom Assistant
                         </h1>
                     </div>
+                    <div class="col"></div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="d-flex">
-                            <div className="InputElements">
-                                <br></br><h3>Invite Link</h3>
-                                <Invite updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="d-flex">
-                            <div>
-                            <div className="InputElements">
+                            <div class="justify-center" className="InputElements">
                                 <h3>To Do</h3>
                                 <AddTask updatedTaskList={this.updateTaskList} handleCompletedTasks={this.handleCompletedTasks} />
-                            </div>
                             </div>
                             <div className="taskListElements">
                                 <ListItems tasks={this.state.taskList} handleTaskClick={this.handleTaskClick} />

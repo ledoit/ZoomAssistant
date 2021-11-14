@@ -7,6 +7,11 @@
     border: 5px solid #f00;
 } */
 
+.d-flex-left {
+    text-align:left;
+    justify-content:left;
+}
+
 .d-flex {
     text-align:center;
     justify-content:center;

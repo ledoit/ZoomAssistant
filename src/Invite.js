@@ -40,15 +40,17 @@ class Invite extends React.Component {
     render() {
         const formInstance = (
             <Form inline onSubmit={this.handleSubmit}>
+				<div>
                 <div class="form-group" controlId="formInlineName">
-                    <FormControl type="text" placeholder="Paste invite link here" value={this.state.zoomlink} onChange={this.handleZoomChange} />
+                    <FormControl type="text" placeholder="Meeting ID" value={this.state.zoomlink} onChange={this.handleZoomChange} />
                 </div>
                 <div class="form-group" controlId="formInlineName">
-                    <FormControl type="text" placeholder="Enter password here" value={this.state.password} onChange={this.handlePassChange} />
+                    <FormControl type="text" placeholder="Password" value={this.state.password} onChange={this.handlePassChange} />
                 </div>
 				{' '}
-                <Button bsStyle="primary" type="submit">Go</Button>
-            </Form>
+                <Button bsStyle="primary" type="submit">Join</Button>
+				</div>
+			</Form>
         );
 
         return (
