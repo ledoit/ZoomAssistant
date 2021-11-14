@@ -7,35 +7,45 @@ class Invite extends React.Component {
         super(props)
 
         this.state = {
-            taskValue: ''
+            zoomlink: '',
+            password: ''
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.updatedTaskList(this.state.taskValue);
+        
+        // TODO: 
+        // Send this.state.zoomlink and this.state.password to Flask to connect to Zoom call
+        // Depending on response either sends toast saying it's connected or not.
 
         this.setState({
-            taskValue: ''
+            zoomlink: "",
+            password: ""
         })
     }
 
-    handleChange = (event) => {
+    handleZoomChange = (event) => {
         this.setState({
-            taskValue: event.target.value
+            zoomlink: event.target.value
         })
     }
 
-    removeCompletedTasks = () => {
-        this.props.handleCompletedTasks();  
+    handlePassChange = (event) => {
+        this.setState({
+            password: event.target.value
+        })
     }
 
     render() {
         const formInstance = (
             <Form inline onSubmit={this.handleSubmit}>
-                <FormGroup controlId="formInlineName">
-                    <FormControl type="text" placeholder="Paste invite link here" value={this.state.taskValue} onChange={this.handleChange} />
-                </FormGroup>
+                <div class="form-group" controlId="formInlineName">
+                    <FormControl type="text" placeholder="Paste invite link here" value={this.state.zoomlink} onChange={this.handleZoomChange} />
+                </div>
+                <div class="form-group" controlId="formInlineName">
+                    <FormControl type="text" placeholder="Enter password here" value={this.state.password} onChange={this.handlePassChange} />
+                </div>
 				{' '}
                 <Button bsStyle="primary" type="submit">Go</Button>
             </Form>
