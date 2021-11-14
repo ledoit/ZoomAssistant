@@ -91,6 +91,7 @@ async def send_receive():
                 r = await asyncio.sleep(0.01)
 
         async def receive():
+            global index
             while st.session_state['run']:
                 try:
                     result_str = await _ws.recv()
