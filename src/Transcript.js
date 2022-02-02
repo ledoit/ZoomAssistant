@@ -30,19 +30,18 @@ class Transcript extends React.Component {
         })
     }
 
-    render() {
-        // How do we constantly get new data from the Twilio MediaStream?
-        // while (this.state.zoom_call.state.meeting != ""){
-            const trans = (
-                <p class="text-break">
-                    {this.state.transcript_value}
-                </p>
-            );
-        // }
+	render() {
+        const formInstance = (
+            <Form inline onSubmit={this.handleSubmit}>
+                <div class="form-group" controlId="formInlineName">
+                    <Form textarea type="text" placeholder="Transcript starts here" rows={8} value={this.state.zoomlink} onChange={this.handleZoomChange} />
+                </div>
+			</Form>
+        );
 
         return (
-            <div className="transcript">
-                {trans}
+            <div className="taskInputs">
+                {formInstance}
             </div>
         );
     }
